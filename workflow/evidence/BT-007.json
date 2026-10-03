@@ -1,0 +1,436 @@
+{
+  "taskId": "BT-007",
+  "kind": "behavior",
+  "workflow": {
+    "phase": "done",
+    "correctionCycles": 9,
+    "maxCorrectionCycles": 2,
+    "activeFailure": {
+      "owner": "tester",
+      "classification": "test",
+      "key": "bt007:review:token-name-traceability",
+      "status": "resolved",
+      "occurrences": 1
+    },
+    "blockedReason": "",
+    "failureHistory": {
+      "bt007:slice1:suspend-inside-lock": 1,
+      "bt007:slice1:missing-mutation-token-in-test": 1,
+      "bt007:room:compile-signatures": 1,
+      "bt007:spotless:room-formatting": 1,
+      "formatting:BT-007:ExpenseModels.kt": 1
+    },
+    "phaseTimings": [
+      {
+        "phase": "pending",
+        "startedAt": null,
+        "finishedAt": "2026-10-02T05:09:09.631Z",
+        "elapsedMs": null
+      },
+      {
+        "phase": "claimed",
+        "startedAt": "2026-10-02T05:09:09.631Z",
+        "finishedAt": "2026-10-02T05:09:29.962Z",
+        "elapsedMs": 20331
+      },
+      {
+        "phase": "red",
+        "startedAt": "2026-10-02T05:09:29.962Z",
+        "finishedAt": "2026-10-02T05:16:22.854Z",
+        "elapsedMs": 412892
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-02T05:16:22.854Z",
+        "finishedAt": "2026-10-02T05:31:26.812Z",
+        "elapsedMs": 903958
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-02T05:31:26.812Z",
+        "finishedAt": "2026-10-02T05:33:31.224Z",
+        "elapsedMs": 124412
+      },
+      {
+        "phase": "red",
+        "startedAt": "2026-10-02T05:33:31.224Z",
+        "finishedAt": "2026-10-02T05:34:44.053Z",
+        "elapsedMs": 72829
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-02T05:34:44.053Z",
+        "finishedAt": "2026-10-02T05:53:08.748Z",
+        "elapsedMs": 1104695
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-02T05:53:08.748Z",
+        "finishedAt": "2026-10-02T05:56:06.662Z",
+        "elapsedMs": 177914
+      },
+      {
+        "phase": "red",
+        "startedAt": "2026-10-02T05:56:06.662Z",
+        "finishedAt": "2026-10-02T05:56:31.263Z",
+        "elapsedMs": 24601
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-02T05:56:31.263Z",
+        "finishedAt": "2026-10-02T06:03:00.019Z",
+        "elapsedMs": 388756
+      },
+      {
+        "phase": "verifying",
+        "startedAt": "2026-10-02T06:03:00.019Z",
+        "finishedAt": "2026-10-02T07:28:41.458Z",
+        "elapsedMs": 5141439
+      },
+      {
+        "phase": "blocked",
+        "startedAt": "2026-10-02T07:28:41.458Z",
+        "finishedAt": "2026-10-02T07:54:38.659Z",
+        "elapsedMs": 1557201
+      },
+      {
+        "phase": "verifying",
+        "startedAt": "2026-10-02T07:54:38.659Z",
+        "finishedAt": "2026-10-02T07:54:38.768Z",
+        "elapsedMs": 109
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-02T07:54:38.768Z",
+        "finishedAt": "2026-10-02T09:11:07.151Z",
+        "elapsedMs": 4588383
+      },
+      {
+        "phase": "verifying",
+        "startedAt": "2026-10-02T09:11:07.151Z",
+        "finishedAt": "2026-10-02T09:17:29.756Z",
+        "elapsedMs": 382605
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-02T09:17:29.756Z",
+        "finishedAt": "2026-10-02T10:18:25.492Z",
+        "elapsedMs": 3655736
+      },
+      {
+        "phase": "verifying",
+        "startedAt": "2026-10-02T10:18:25.492Z",
+        "finishedAt": "2026-10-02T17:59:51.225Z",
+        "elapsedMs": 27685733
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-02T17:59:51.225Z",
+        "finishedAt": "2026-10-02T17:59:51.383Z",
+        "elapsedMs": 158
+      },
+      {
+        "phase": "verifying",
+        "startedAt": "2026-10-02T17:59:51.383Z",
+        "finishedAt": "2026-10-02T18:12:35.538Z",
+        "elapsedMs": 764155
+      },
+      {
+        "phase": "review",
+        "startedAt": "2026-10-02T18:12:35.538Z",
+        "finishedAt": "2026-10-02T18:16:43.489Z",
+        "elapsedMs": 247951
+      },
+      {
+        "phase": "red",
+        "startedAt": "2026-10-02T18:16:43.489Z",
+        "finishedAt": "2026-10-02T18:23:28.957Z",
+        "elapsedMs": 405468
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-02T18:23:28.957Z",
+        "finishedAt": "2026-10-02T18:29:06.357Z",
+        "elapsedMs": 337400
+      },
+      {
+        "phase": "verifying",
+        "startedAt": "2026-10-02T18:29:06.357Z",
+        "finishedAt": "2026-10-02T18:42:38.050Z",
+        "elapsedMs": 811693
+      },
+      {
+        "phase": "review",
+        "startedAt": "2026-10-02T18:42:38.050Z",
+        "finishedAt": "2026-10-02T18:44:42.314Z",
+        "elapsedMs": 124264
+      },
+      {
+        "phase": "done",
+        "startedAt": "2026-10-02T18:44:42.314Z",
+        "finishedAt": null,
+        "elapsedMs": null
+      }
+    ],
+    "recovery": {
+      "authorizedBy": "user",
+      "recordedAt": "2026-10-02T07:54:38.659Z",
+      "reason": "The repeated Room test-helper compilation failure had passed focused Android-test compilation and the connected Android suite; the later full gate exposed a distinct Spotless formatting failure.",
+      "resolvedFailureKey": "bt007:room:suspend-helper-test-call",
+      "currentFailure": {
+        "owner": "builder",
+        "classification": "implementation",
+        "key": "formatting:BT-007:ExpenseModels.kt",
+        "status": "open"
+      }
+    }
+  },
+  "planner": {
+    "owner": "bt007_planner",
+    "planPath": "workflow/evidence/BT-007-plan.md",
+    "risk": "elevated",
+    "operations": [
+      "Implement pure expense/category/payment contracts and fakes",
+      "Implement Room schema v1 and adapters",
+      "Add pinned Room/KSP/coroutines dependencies"
+    ],
+    "ownedFiles": [
+      "core/domain/src/main/**",
+      "core/application/src/main/**",
+      "core/application/src/test/**",
+      "app/src/main/**",
+      "app/src/androidTest/**",
+      "app/schemas/**",
+      "gradle/libs.versions.toml",
+      "app/build.gradle.kts",
+      "core/application/build.gradle.kts",
+      "workflow/evidence/BT-007*"
+    ],
+    "rollback": "Preserve the domain slice and red evidence; restore only reviewed scoped Room/build edits if needed. Never delete installed app data to fix tests.",
+    "acceptanceIds": [
+      "SPEC-001-AC-01",
+      "SPEC-001-AC-02",
+      "SPEC-001-AC-03",
+      "SPEC-001-AC-04",
+      "SPEC-001-AC-05",
+      "SPEC-001-AC-06",
+      "SPEC-001-AC-07",
+      "SPEC-001-AC-10",
+      "SPEC-001-AC-12",
+      "SPEC-001-AC-15",
+      "SPEC-001-AC-16",
+      "SPEC-002-AC-01",
+      "SPEC-002-AC-02",
+      "SPEC-002-AC-03",
+      "SPEC-002-AC-04",
+      "SPEC-002-AC-06",
+      "SPEC-002-AC-07",
+      "SPEC-002-AC-08",
+      "SPEC-002-AC-09"
+    ],
+    "approvedSpecs": [
+      "docs/specs/SPEC-001-expense-entry.md",
+      "docs/specs/SPEC-002-categories-payment-methods.md"
+    ]
+  },
+  "securityPreflight": {
+    "reviewer": "bt007_preflight",
+    "decision": "approved",
+    "scope": "Pure expense/category/payment contracts and fakes; Room v1 schema/adapters; pinned KSP, Room, coroutine dependencies; scoped tests per BT-007 plan. No destructive operation.",
+    "findings": []
+  },
+  "destructiveApproval": {
+    "action": "",
+    "approvalReference": "",
+    "recoverySnapshot": ""
+  },
+  "tester": {
+    "owner": "bt007_tester",
+    "red": {
+      "command": "Slice 1: C:\\BT007Build\\gradlew.bat :core:application:test --no-daemon; slice 2: C:\\BT007RoomRed\\gradlew.bat :app:compileDebugAndroidTestKotlin --no-daemon (Windows-local copies, JDK 17)",
+      "observedFailure": "Slice 1 exited 1 at :core:application:compileTestKotlin on missing production validation/store APIs with JUnit/coroutines resolved. Slice 2 exited 1 at :app:compileDebugAndroidTestKotlin on missing com.bubblespend.app.data.RoomExpenseStore and adapter API with Android test harness imports resolved.",
+      "acceptanceIds": [
+        "SPEC-001-AC-01",
+        "SPEC-001-AC-02",
+        "SPEC-001-AC-03",
+        "SPEC-001-AC-04",
+        "SPEC-001-AC-05",
+        "SPEC-001-AC-06",
+        "SPEC-001-AC-07",
+        "SPEC-001-AC-10",
+        "SPEC-001-AC-12",
+        "SPEC-001-AC-15",
+        "SPEC-001-AC-16",
+        "SPEC-002-AC-01",
+        "SPEC-002-AC-02",
+        "SPEC-002-AC-03",
+        "SPEC-002-AC-04",
+        "SPEC-002-AC-06",
+        "SPEC-002-AC-07",
+        "SPEC-002-AC-08",
+        "SPEC-002-AC-09"
+      ],
+      "slices": [
+        {
+          "command": "C:\\BT007Build\\gradlew.bat :core:application:test --no-daemon",
+          "result": "failed on missing production validation/store APIs"
+        },
+        {
+          "command": "C:\\BT007RoomRed\\gradlew.bat :app:compileDebugAndroidTestKotlin --no-daemon",
+          "result": "failed on missing RoomExpenseStore adapter API"
+        }
+      ]
+    },
+    "reviewRed": {
+      "command": "C:\\BT007RoomRed\\gradlew.bat :core:application:test --no-daemon; C:\\BT007RoomRed\\gradlew.bat :app:connectedDebugAndroidTest --no-daemon",
+      "observedFailure": "JVM: 15 tests, 3 failures in mutation-token misuse and name display/length tests. Android: 10 tests, 1 failure in the shared fake/Room token contract; 9 other tests passed, including custom category/payment reopen and stale-version coverage. The shared token helper failed on the fake before reaching Room.",
+      "tests": [
+        "CategoryPaymentRepositoryContractTest.mutationTokenRetriesOriginalOperationAndRejectsDifferentOperationOrType",
+        "CategoryPaymentValidationTest.preservesTrimmedDisplayWhitespaceAndValidatesLengthBeforeUniquenessCollapse",
+        "ExpenseRepositoryContractTest.expenseMutationTokenRejectsDifferentOperationWithoutFalseSuccess",
+        "RoomExpenseRepositoryContractTest.sharedMutationTokenRetryAndMisuseContractRunsAgainstFakeAndRoom"
+      ]
+    },
+    "verification": [
+      {
+        "command": "C:\\BT007Build\\gradlew.bat :core:application:test --no-daemon",
+        "result": "passed",
+        "details": "Slice-1 fake/validation suite passed with JDK 17."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat :app:compileDebugAndroidTestKotlin --no-daemon",
+        "result": "passed",
+        "details": "Room production and Android acceptance test compilation passed with JDK 17."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat :app:connectedDebugAndroidTest --no-daemon",
+        "result": "passed",
+        "details": "API 35 emulator-5554, sdk_gphone64_x86_64; 8 tests, 0 failed, 0 skipped; BUILD SUCCESSFUL in 3m 13s."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat testDebugUnitTest connectedDebugAndroidTest spotlessCheck lint assembleDebug --no-daemon",
+        "result": "passed",
+        "details": "BUILD SUCCESSFUL in 3m 32s with JDK 17. Connected Android tests executed 8/8 with 0 failed or skipped on BT003_API35_Pixel8 (API 35); unit tests, root Spotless, app lint, and debug assembly passed."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat :core:application:test --no-daemon",
+        "result": "passed",
+        "details": "Review-fix application suite passed all 15 tests with JDK 17."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat testDebugUnitTest connectedDebugAndroidTest spotlessCheck lint assembleDebug --no-daemon -Dorg.gradle.jvmargs=-Xmx1024m -Dorg.gradle.workers.max=2",
+        "result": "passed",
+        "details": "BUILD SUCCESSFUL in 2m 45s. Connected tests executed 10/10 with 0 failed or skipped on BT003_API35_Pixel8 (API 35); unit tests, Spotless, app lint, and debug assembly passed. Resource flags addressed the prior Windows native-memory crash without omitting gates."
+      }
+    ],
+    "status": "passed",
+    "verificationAttempts": [
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat testDebugUnitTest connectedDebugAndroidTest spotlessCheck lint assembleDebug --no-daemon",
+        "result": "failed-at-spotlessKotlinCheck",
+        "details": "Stopped at formatter violations in ExpenseDatabase.kt and RoomExpenseStore.kt. Connected tests, lint, and assembleDebug were not reached in this combined run. This attempt initiated authorized rework; prior standalone connected suite remains passed."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat testDebugUnitTest connectedDebugAndroidTest spotlessCheck lint assembleDebug --no-daemon",
+        "result": "failed-at-core-spotlessKotlinCheck",
+        "details": "Room formatting passed; :core:spotlessKotlinCheck and :core:application:spotlessKotlinCheck failed on ExpenseModels.kt formatting. Connected tests, lint, and assembleDebug were not reached."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat testDebugUnitTest connectedDebugAndroidTest spotlessCheck lint assembleDebug --no-daemon",
+        "result": "failed-at-core-application-spotlessKotlinCheck",
+        "details": "The formatter stopped at InMemoryExpenseStore.kt:L332 before unit tests, connected tests, lint, or assembleDebug. Direct ktlint later showed the file needed broad autocorrection before the reported transformed max-line finding could be resolved."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat testDebugUnitTest connectedDebugAndroidTest spotlessCheck lint assembleDebug --no-daemon",
+        "result": "environment-failure",
+        "details": "Spotless, app unit tests, and assembleDebug passed, but connectedDebugAndroidTest stopped because no emulator was connected; lint did not finish. No assertion failed."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat testDebugUnitTest connectedDebugAndroidTest spotlessCheck lint assembleDebug --no-daemon",
+        "result": "environment-failure",
+        "details": "After the review fixes and Tester-owned formatting, the Gradle daemon crashed before gates due to Windows native-memory exhaustion at -Xmx2g. A resource-limited retry ran every required gate successfully."
+      }
+    ]
+  },
+  "builder": {
+    "owner": "bt007_builder",
+    "status": "complete",
+    "changedFiles": [
+      "core/application/src/main/kotlin/com/bubblespend/core/application/ExpenseModels.kt",
+      "core/application/src/main/kotlin/com/bubblespend/core/application/InMemoryExpenseStore.kt",
+      "app/src/main/java/com/bubblespend/app/data/ExpenseDatabase.kt",
+      "app/src/main/java/com/bubblespend/app/data/RoomExpenseStore.kt",
+      "core/application/build.gradle.kts",
+      "app/build.gradle.kts",
+      "gradle/libs.versions.toml",
+      "app/schemas/com.bubblespend.app.data.ExpenseDatabase/1.json"
+    ],
+    "formatterCorrection": {
+      "command": "C:\\BT007RoomRed\\gradlew.bat :app:spotlessKotlinApply --no-daemon",
+      "result": "passed",
+      "details": "Applied formatting in isolated Windows copy; synced only ExpenseDatabase.kt and RoomExpenseStore.kt back. No Tester-owned files copied."
+    },
+    "formatterAttempts": [
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat :app:spotlessKotlinApply --no-daemon",
+        "result": "passed",
+        "details": "Applied and synced only ExpenseDatabase.kt and RoomExpenseStore.kt."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat :core:application:spotlessKotlinCheck --no-daemon",
+        "result": "failed",
+        "details": "First reported ExpenseModels.kt formatting; after formatting that file, subsequent check reported InMemoryExpenseStore.kt:L333 max-line-length although the synced line is 89 characters."
+      },
+      {
+        "command": "C:\\BT007RoomRed\\gradlew.bat :core:application:spotlessKotlinApply --no-daemon",
+        "result": "failed",
+        "details": "Reported InMemoryExpenseStore.kt:L333 max-line-length; same location is 89 characters in both workspace and Windows copy."
+      },
+      {
+        "command": "Pinned ktlint 1.5.0 --format and check on C:\\BT007RoomRed\\core\\application\\src\\main\\kotlin\\com\\bubblespend\\core\\application\\InMemoryExpenseStore.kt",
+        "result": "passed",
+        "details": "Direct formatting wrote the autocorrections that Spotless held in memory; a direct follow-up check and :core:application:spotlessKotlinCheck both passed. Only the Builder-owned production file was synced back."
+      }
+    ],
+    "reviewFix": {
+      "changedFiles": [
+        "core/application/src/main/kotlin/com/bubblespend/core/application/ExpenseModels.kt",
+        "core/application/src/main/kotlin/com/bubblespend/core/application/InMemoryExpenseStore.kt",
+        "app/src/main/java/com/bubblespend/app/data/RoomExpenseStore.kt"
+      ],
+      "details": "Name display and uniqueness semantics now match SPEC-002. Fake and Room mutation receipts use distinct logical operation keys, replay only successful same-operation results, and reject different-operation token reuse without mutation. Existing Room schema column is reused; no schema change.",
+      "formatting": "Pinned ktlint 1.5.0 format and follow-up check passed on all three production files."
+    }
+  },
+  "featureReview": {
+    "reviewer": "bt007_final_review",
+    "decision": "approved",
+    "findings": [
+      {
+        "id": "BT-007-R1",
+        "severity": "high",
+        "status": "resolved",
+        "summary": "Mutation receipts identify only a broad entity type, allowing reuse across different operations to return false success without mutation.",
+        "requiredAction": "Add operation-specific receipt identity in Room and the fake, align retry semantics, and add shared fake and Room acceptance coverage."
+      },
+      {
+        "id": "BT-007-R2",
+        "severity": "medium",
+        "status": "resolved",
+        "summary": "Name validation collapses whitespace before display storage and length validation instead of applying those rules to the trimmed display name.",
+        "requiredAction": "Preserve trimmed display whitespace, validate its 1-40 length, collapse repeated whitespace only for the case-insensitive uniqueness key, and add boundary/display coverage."
+      },
+      {
+        "id": "BT-007-R3",
+        "severity": "medium",
+        "status": "resolved",
+        "summary": "Approved traceability names missing tests and omits meaningful coverage for operation-token misuse and persisted custom record identity.",
+        "requiredAction": "Add or rename acceptance tests to match actual coverage and update approved specification mappings."
+      }
+    ],
+    "reReview": {
+      "decision": "approved",
+      "details": "Reviewer confirmed operation-specific token receipts, corrected display/length/uniqueness semantics, existing mapped tests, and green review-fix verification. No new correctness, security, privacy, accessibility-scope, or test-quality blocker was found."
+    }
+  }
+}

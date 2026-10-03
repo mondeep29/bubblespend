@@ -1,0 +1,215 @@
+{
+  "taskId": "BT-020",
+  "kind": "foundation",
+  "workflow": {
+    "phase": "done",
+    "correctionCycles": 1,
+    "maxCorrectionCycles": 2,
+    "activeFailure": {
+      "owner": "tester",
+      "classification": "test",
+      "key": "review:BT-020:legacy-active-evidence-transition",
+      "status": "resolved",
+      "occurrences": 1
+    },
+    "blockedReason": "",
+    "failureHistory": {},
+    "phaseTimings": [
+      {
+        "phase": "implementing",
+        "startedAt": null,
+        "finishedAt": "2026-09-29T19:10:01.857Z",
+        "elapsedMs": null
+      },
+      {
+        "phase": "verifying",
+        "startedAt": "2026-09-29T19:10:01.857Z",
+        "finishedAt": "2026-09-29T19:10:08.318Z",
+        "elapsedMs": 6461
+      },
+      {
+        "phase": "review",
+        "startedAt": "2026-09-29T19:10:08.318Z",
+        "finishedAt": "2026-09-29T19:14:19.710Z",
+        "elapsedMs": 251392
+      },
+      {
+        "phase": "red",
+        "startedAt": "2026-09-29T19:14:19.710Z",
+        "finishedAt": "2026-09-29T19:16:28.830Z",
+        "elapsedMs": 129120
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-09-29T19:16:28.830Z",
+        "finishedAt": "2026-09-29T19:19:03.278Z",
+        "elapsedMs": 154448
+      },
+      {
+        "phase": "verifying",
+        "startedAt": "2026-09-29T19:19:03.278Z",
+        "finishedAt": "2026-09-29T19:19:48.851Z",
+        "elapsedMs": 45573
+      },
+      {
+        "phase": "review",
+        "startedAt": "2026-09-29T19:19:48.851Z",
+        "finishedAt": "2026-09-29T19:21:26.742Z",
+        "elapsedMs": 97891
+      },
+      {
+        "phase": "done",
+        "startedAt": "2026-09-29T19:21:26.742Z",
+        "finishedAt": null,
+        "elapsedMs": null
+      }
+    ]
+  },
+  "planner": {
+    "owner": "bt020_plan",
+    "planPath": "workflow/evidence/BT-020-plan.md",
+    "risk": "elevated",
+    "operations": [
+      "Record sanitized UTC and monotonic duration for every production gate evaluation, including blocked outcomes.",
+      "Record ordered phase visits in task evidence and preserve them through rollback-safe state transitions.",
+      "Verify legacy active and completed evidence remains usable without fabricating historical timestamps."
+    ],
+    "ownedFiles": [
+      "docs/agent-tasks/BT-020.md",
+      "workflow/evidence/BT-020-plan.md",
+      "workflow/evidence/BT-020.md",
+      "workflow/evidence/BT-020.json",
+      "workflow/tasks.json",
+      "workflow/gate.py",
+      "workflow/transition.py",
+      "workflow/templates/handoff.json",
+      "workflow/templates/evidence.md",
+      "workflow/README.md",
+      "workflow/tests/test_gate.py",
+      "workflow/tests/test_transition.py"
+    ],
+    "rollback": "Restore only BT-020-owned workflow scripts, docs/templates, tests, queue entry, and BT-020 evidence; preserve BT-006 product files and evidence. Gate attempt logs may remain only as truthful records of evaluations.",
+    "acceptanceIds": [
+      "BT-020-AC-01",
+      "BT-020-AC-02",
+      "BT-020-AC-03",
+      "BT-020-AC-04"
+    ],
+    "approvedSpecs": []
+  },
+  "securityPreflight": {
+    "reviewer": "bt020_preflight",
+    "decision": "approved",
+    "scope": "BT-020 workflow control-plane timing only: workflow/gate.py, workflow/transition.py, workflow evidence templates/docs/tests, and BT-020 packet/evidence; sanitized per-task gate JSONL and ordered phase history. Excludes Android/user financial data, network, credentials, dependencies, CI, destructive operations, and BT-006-owned files.",
+    "findings": [
+      {
+        "severity": "medium",
+        "status": "guardrail",
+        "description": "Timing logs may contain only validated task ID, fixed gate identifier, UTC start/finish, monotonic nonnegative elapsed milliseconds, and pass/block/error outcome. Keep gate.check pure; instrument production CLI and transition evaluations, including rejected/error paths. Never log failure text, commands, output, evidence contents, or arbitrary CLI strings. Resolve log paths inside workflow/evidence and reject symlink escape."
+      },
+      {
+        "severity": "medium",
+        "status": "guardrail",
+        "description": "Phase history changes only in the in-memory destination evidence committed with the queue. Preserve rollback if second replacement fails; a truthful gate-attempt record may remain but must not imply the transition committed. Report rollback failure explicitly."
+      },
+      {
+        "severity": "medium",
+        "status": "guardrail",
+        "description": "Unknown legacy timestamps remain null; rework creates a new ordered visit; failed gates do not write phase visits. Add pass/block/error log, all production gate-entry, rollback, privacy, BT-005 legacy, and BT-006-shaped active-evidence tests."
+      }
+    ]
+  },
+  "destructiveApproval": {
+    "action": "Remove generated simulated workflow/evidence/BT-014-gates.jsonl test artifact",
+    "approvalReference": "Approved through active Codex permission prompt",
+    "recoverySnapshot": "/tmp/bt020-BT-014-gates.jsonl.backup"
+  },
+  "tester": {
+    "owner": "bt020_tester",
+    "red": {
+      "command": "python3 -m unittest discover -s workflow/tests -p 'test_*.py' -v",
+      "observedFailure": "Genuine RED: 35 tests ran; 6 failures and no errors. New tests show gate.main propagates evaluator exceptions instead of recording error outcomes; phaseTimings are absent for happy path, documentation shortcut, and rework; blocked and error transition gate evaluations are not logged.",
+      "acceptanceIds": [
+        "BT-020-AC-01",
+        "BT-020-AC-02",
+        "BT-020-AC-03",
+        "BT-020-AC-04"
+      ]
+    },
+    "reworkRed": {
+      "command": "python3 -m unittest discover -s workflow/tests -p 'test_*.py' -v",
+      "observedFailure": "Genuine review-rework RED: 37 tests ran, 2 failures. Actual BT-006 evidence with no workflow object is rejected by check-start as incomplete, and claimed-to-red transition defaults missing phase to pending instead of queue state claimed.",
+      "acceptanceIds": [
+        "BT-020-AC-04"
+      ]
+    },
+    "priorVerification": [
+      {
+        "command": "python3 -m unittest discover -s workflow/tests -p 'test_*.py' -v",
+        "result": "passed before legacy active-evidence review fix"
+      },
+      {
+        "command": "python3 -m py_compile workflow/gate.py workflow/transition.py workflow/next_task.py",
+        "result": "passed"
+      },
+      {
+        "command": "python3 -m json.tool workflow/templates/handoff.json",
+        "result": "passed"
+      },
+      {
+        "command": "python3 -m json.tool workflow/tasks.json",
+        "result": "passed"
+      },
+      {
+        "command": "python3 workflow/next_task.py",
+        "result": "passed"
+      }
+    ],
+    "verification": [
+      {
+        "command": "python3 -m unittest discover -s workflow/tests -p 'test_*.py' -v",
+        "result": "passed"
+      },
+      {
+        "command": "python3 -m py_compile workflow/gate.py workflow/transition.py workflow/next_task.py",
+        "result": "passed"
+      },
+      {
+        "command": "python3 -m json.tool workflow/templates/handoff.json",
+        "result": "passed"
+      },
+      {
+        "command": "python3 -m json.tool workflow/tasks.json",
+        "result": "passed"
+      },
+      {
+        "command": "python3 workflow/next_task.py",
+        "result": "passed"
+      }
+    ],
+    "status": "passed"
+  },
+  "builder": {
+    "owner": "bt020_builder",
+    "status": "complete",
+    "revision": 2,
+    "changedFiles": [
+      "workflow/gate.py",
+      "workflow/transition.py",
+      "workflow/templates/handoff.json",
+      "workflow/templates/evidence.md",
+      "workflow/README.md"
+    ]
+  },
+  "featureReview": {
+    "reviewer": "bt020_review",
+    "decision": "approved",
+    "findings": [
+      {
+        "severity": "high",
+        "status": "resolved",
+        "description": "Actual BT-006 evidence is active in queue state claimed but has no workflow object. Transition initialization defaults it to pending, and active gates reject missing workflow fields. Initialize legacy active phase from the authoritative queue state; preserve unknown timestamps as null. Add regression coverage for actual BT-006-shaped evidence through an active gate and transition."
+      }
+    ]
+  }
+}

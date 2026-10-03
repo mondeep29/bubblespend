@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "tasks": [
+    {
+      "id": "BT-008",
+      "title": "Implement Room database and migrations",
+      "packet": "docs/agent-tasks/BT-008.md",
+      "dependsOn": [
+        "BT-007"
+      ],
+      "state": "pending",
+      "absorbedInto": "BT-007"
+    },
+    {
+      "id": "BT-013",
+      "title": "Deliver analytics and insights",
+      "packet": "docs/agent-tasks/BT-013.md",
+      "dependsOn": [
+        "BT-011",
+        "BT-012"
+      ],
+      "state": "pending",
+      "absorbedInto": "BT-011"
+    },
+    {
+      "id": "BT-018",
+      "title": "Review future sync readiness",
+      "packet": "docs/agent-tasks/BT-018.md",
+      "dependsOn": [
+        "BT-017"
+      ],
+      "state": "pending",
+      "absorbedInto": "BT-017"
+    }
+  ]
+}

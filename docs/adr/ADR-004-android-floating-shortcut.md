@@ -1,0 +1,9 @@
+# ADR-004: Android floating shortcut strategy
+
+**Status:** Approved for the opt-in permission and platform-adapter boundary only; production overlay implementation remains blocked by BT-003 device proof and D-01/D-06.
+
+Use an in-app Compose floating action first. The system overlay is opt-in through Android's special overlay permission and an explicit settings switch. A native service/window adapter owns creation, touch/drag/snap, teardown, permission revocation, lifecycle behavior, and opening the app. The adapter sends commands through `FloatingShortcutGateway`; expense persistence stays in application use cases and must be idempotent.
+
+The spike must demonstrate permission request/denial/revocation, overlay creation/removal, drag/expand, opening the app, exactly-once save boundary, rotation, process death, restart behavior, and lock-screen privacy on a representative emulator and a real device. Record Android version, device, observed restrictions, failures, and a go/no-go recommendation in `docs/proofs/android-overlay.md`. Do not infer device restart behavior from code alone.
+
+Permission denial cannot block normal app use. A visible disable control must remove the overlay immediately. Platform policy and notification/service requirements must be checked before choosing service type or restart mechanism.

@@ -1,0 +1,12 @@
+# Require a real Codex approval prompt for destructive command families.
+# These are a secondary guardrail; AGENTS.md and workflow/security policy also apply.
+prefix_rule(pattern = ["rm"], decision = "prompt", justification = "Deletion requires a reviewed target and explicit approval.")
+prefix_rule(pattern = ["git", "reset"], decision = "prompt", justification = "Reset can discard work; review the affected revision and files first.")
+prefix_rule(pattern = ["git", "clean"], decision = "prompt", justification = "Clean can remove untracked work; inspect the dry-run output first.")
+prefix_rule(pattern = ["git", "restore"], decision = "prompt", justification = "Restore can discard local changes; review target files first.")
+prefix_rule(pattern = ["git", "checkout"], decision = "prompt", justification = "Checkout may overwrite local changes; review the exact target first.")
+prefix_rule(pattern = ["git", "push"], decision = "prompt", justification = "Remote writes require a reviewed target and explicit approval.")
+prefix_rule(pattern = ["git", "push", "--force"], decision = "prompt", justification = "Force push can overwrite remote history; review the exact target first.")
+prefix_rule(pattern = ["git", "push", "--force-with-lease"], decision = "prompt", justification = "Force push can overwrite remote history; review the exact target first.")
+prefix_rule(pattern = ["gh", "repo", "delete"], decision = "prompt", justification = "Repository deletion requires explicit approval.")
+prefix_rule(pattern = ["gh", "release", "create"], decision = "prompt", justification = "Publishing a release requires final review and explicit approval.")

@@ -1,0 +1,6 @@
+{"taskId":"BT-021","gate":"check-start","startedAt":"2026-10-01T18:36:52.017Z","finishedAt":"2026-10-01T18:36:52.020Z","elapsedMs":0,"outcome":"block"}
+{"taskId":"BT-021","gate":"check-start","startedAt":"2026-10-01T18:46:07.112Z","finishedAt":"2026-10-01T18:46:07.114Z","elapsedMs":0,"outcome":"pass"}
+{"taskId":"BT-021","gate":"check-build","startedAt":"2026-10-01T18:56:43.419Z","finishedAt":"2026-10-01T18:56:43.419Z","elapsedMs":0,"outcome":"pass"}
+{"taskId":"BT-021","gate":"check-review","startedAt":"2026-10-01T19:22:19.265Z","finishedAt":"2026-10-01T19:22:19.265Z","elapsedMs":0,"outcome":"pass"}
+{"taskId":"BT-021","gate":"check-done","startedAt":"2026-10-01T19:22:52.607Z","finishedAt":"2026-10-01T19:22:52.608Z","elapsedMs":0,"outcome":"pass"}
+{"taskId":"BT-021","gate":"check-done","startedAt":"2026-10-01T19:22:52.671Z","finishedAt":"2026-10-01T19:22:52.671Z","elapsedMs":0,"outcome":"pass"}

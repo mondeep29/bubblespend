@@ -1,0 +1,258 @@
+{
+  "taskId": "BT-021",
+  "kind": "foundation",
+  "workflow": {
+    "phase": "done",
+    "correctionCycles": 0,
+    "maxCorrectionCycles": 2,
+    "activeFailure": null,
+    "blockedReason": "",
+    "failureHistory": {},
+    "phaseTimings": [
+      {
+        "phase": "pending",
+        "startedAt": null,
+        "finishedAt": "2026-10-01T18:46:07.115Z",
+        "elapsedMs": null
+      },
+      {
+        "phase": "claimed",
+        "startedAt": "2026-10-01T18:46:07.115Z",
+        "finishedAt": "2026-10-01T18:46:45.112Z",
+        "elapsedMs": 37997
+      },
+      {
+        "phase": "red",
+        "startedAt": "2026-10-01T18:46:45.112Z",
+        "finishedAt": "2026-10-01T18:56:43.420Z",
+        "elapsedMs": 598308
+      },
+      {
+        "phase": "implementing",
+        "startedAt": "2026-10-01T18:56:43.420Z",
+        "finishedAt": "2026-10-01T19:19:09.922Z",
+        "elapsedMs": 1346502
+      },
+      {
+        "phase": "verifying",
+        "startedAt": "2026-10-01T19:19:09.922Z",
+        "finishedAt": "2026-10-01T19:22:19.266Z",
+        "elapsedMs": 189344
+      },
+      {
+        "phase": "review",
+        "startedAt": "2026-10-01T19:22:19.266Z",
+        "finishedAt": "2026-10-01T19:22:52.672Z",
+        "elapsedMs": 33406
+      },
+      {
+        "phase": "done",
+        "startedAt": "2026-10-01T19:22:52.672Z",
+        "finishedAt": null,
+        "elapsedMs": null
+      }
+    ]
+  },
+  "planner": {
+    "owner": "bt021_planner",
+    "planPath": "workflow/evidence/BT-021-plan.md",
+    "risk": "elevated",
+    "operations": [
+      "Define low, elevated, and destructive planning/review profiles without weakening existing substantive gates.",
+      "Add compact context and 30-day research cache conventions; document current model/reasoning choices accurately.",
+      "Add a safe coordinator plan recorder and contract tests.",
+      "Consolidate only pending BT-008 into BT-007, BT-013 into BT-011, and BT-018 into BT-017, preserving all obligations as ordered slices and retaining linked archive records.",
+      "Redirect active dependencies and merged-task gate requirements atomically while preserving blocked BT-003 and claimed BT-006.",
+      "Set explicit builder coding standards and group implementation slices around deliverable features under AC-03/AC-07.",
+      "Separate in-app specification readiness from blocked overlay proof by transferring SPEC-005 approval into BT-003 final documentation phase."
+    ],
+    "ownedFiles": [
+      "AGENTS.md",
+      ".codex/agents/planner.toml",
+      ".codex/agents/tester.toml",
+      ".codex/agents/builder.toml",
+      ".codex/agents/reviewer.toml",
+      "workflow/CONTEXT.md",
+      "workflow/research/README.md",
+      "workflow/record_plan.py",
+      "workflow/gate.py",
+      "workflow/README.md",
+      "workflow/agent-prompt.md",
+      "workflow/templates/evidence.md",
+      "workflow/templates/handoff.json",
+      "workflow/tests/**",
+      "docs/agent-tasks/BT-021.md",
+      "workflow/evidence/BT-021-plan.md",
+      "workflow/evidence/BT-021.md",
+      "workflow/evidence/BT-021.json",
+      "workflow/tasks.json",
+      "docs/agent-tasks/BT-007.md",
+      "docs/agent-tasks/BT-008.md",
+      "docs/agent-tasks/BT-009.md",
+      "docs/agent-tasks/BT-011.md",
+      "docs/agent-tasks/BT-013.md",
+      "docs/agent-tasks/BT-016.md",
+      "docs/agent-tasks/BT-017.md",
+      "docs/agent-tasks/BT-018.md",
+      "docs/coding-standards.md",
+      "docs/agent-tasks/README.md",
+      "docs/agent-tasks/BT-003.md",
+      "docs/agent-tasks/BT-004.md",
+      "workflow/archived-tasks.json",
+      "workflow/research/cache.py",
+      "workflow/tests/test_feature_delivery.py"
+    ],
+    "rollback": "Restore exact prior bytes for workflow/tasks.json, affected BT-007/008/009/011/013/016/017/018 packets, gate/transition/next-task files, tests, and BT-021 evidence; preserve Android code plus active/completed task state and evidence.",
+    "acceptanceIds": [
+      "BT-021-AC-01",
+      "BT-021-AC-02",
+      "BT-021-AC-03",
+      "BT-021-AC-04",
+      "BT-021-AC-05",
+      "BT-021-AC-06",
+      "BT-021-AC-07",
+      "BT-021-DEL-01",
+      "BT-021-DEL-02",
+      "BT-021-DEL-03"
+    ],
+    "approvedSpecs": []
+  },
+  "securityPreflight": {
+    "reviewer": "bt021_preflight",
+    "decision": "approved",
+    "scope": "BT-021-AC-01..07: risk-tier planning/gates, research cache, compact context, scoped review/model documentation, plan recorder, parallel-work policy, and pending-only BT-008/013/018 consolidation with packet, dependency, archive, gate, test, contract, and evidence updates; no Android product implementation. Supplemental: coding standards and in-app/overlay specification dependency separation as reviewed by Chandrasekhar.",
+    "findings": [
+      {
+        "key": "plan-scope-missing-task-consolidation",
+        "severity": "high",
+        "status": "resolved",
+        "resolution": "Planner plan, operations, ownership, BT-021-AC-07, and red-test scope now explicitly cover consolidation, redirects, obligation transfer, archive semantics, gate updates, and recovery."
+      }
+    ],
+    "supplementalReview": {
+      "reviewer": "Chandrasekhar",
+      "decision": "approved",
+      "scope": "Coding standards; BT-004 dependency BT-002 and SPEC-001/002 only; transfer full SPEC-005 approval to BT-003 after preserved device/chart proof before done; unchanged active states and BT-014 prerequisites/spec gate.",
+      "findings": []
+    }
+  },
+  "destructiveApproval": {
+    "action": "",
+    "approvalReference": "",
+    "recoverySnapshot": ""
+  },
+  "tester": {
+    "owner": "bt021_red_tests",
+    "red": {
+      "command": "python3 -m unittest discover -s workflow/tests -p 'test_*.py' -v",
+      "observedFailure": "Ran 61 tests; FAILED (failures=26). Existing workflow tests passed; failures isolate missing BT-021 risk-tier, research-cache, context/role-contract, plan-recorder, parallel-policy, and exact consolidation behavior. Supplemental pre-implementation red by Jason: 6 tests, 4 failures in test_feature_delivery.py (dependency/scope/proof approval transfer); separate command/details in supplementalRed.",
+      "acceptanceIds": [
+        "BT-021-AC-01",
+        "BT-021-AC-02",
+        "BT-021-AC-03",
+        "BT-021-AC-04",
+        "BT-021-AC-05",
+        "BT-021-AC-06",
+        "BT-021-AC-07",
+        "BT-021-DEL-01",
+        "BT-021-DEL-02",
+        "BT-021-DEL-03"
+      ]
+    },
+    "verification": [
+      {
+        "command": "python3 -m unittest discover -s workflow/tests -p 'test_*.py' -v",
+        "result": "passed",
+        "details": "Independent Jason: 67 tests passed in 0.144s; coordinator confirming run 67 tests OK in 0.134s."
+      },
+      {
+        "command": "python3 -m py_compile workflow/gate.py workflow/transition.py workflow/record_plan.py workflow/research/cache.py",
+        "result": "passed"
+      },
+      {
+        "command": "python3 -m json.tool workflow/tasks.json; python3 -m json.tool workflow/archived-tasks.json",
+        "result": "passed"
+      },
+      {
+        "command": "python3 workflow/next_task.py",
+        "result": "passed",
+        "details": "BT-004 and BT-015 eligible; archived IDs never emitted."
+      },
+      {
+        "command": "Parse .codex/agents/*.toml with Python tomllib",
+        "result": "passed",
+        "details": "All four role files parse."
+      }
+    ],
+    "status": "passed",
+    "supplementalRed": {
+      "owner": "Jason",
+      "command": "python3 -m unittest discover -s workflow/tests -p 'test_feature_delivery.py' -v",
+      "observedFailure": "Ran 6 tests; FAILED (failures=4), exit 1. Failures cover BT004 dependency/scope, transferred BT003 approval obligations and independent approval order. Unchanged SPEC005 gate and Builder standards controls pass.",
+      "acceptanceIds": [
+        "BT-021-DEL-01",
+        "BT-021-DEL-02",
+        "BT-021-DEL-03"
+      ]
+    },
+    "verificationOwner": "Jason"
+  },
+  "builder": {
+    "owner": "Cicero",
+    "status": "complete",
+    "changedFiles": [
+      "AGENTS.md",
+      ".codex/agents/planner.toml",
+      ".codex/agents/tester.toml",
+      ".codex/agents/builder.toml",
+      ".codex/agents/reviewer.toml",
+      "workflow/CONTEXT.md",
+      "workflow/README.md",
+      "workflow/agent-prompt.md",
+      "workflow/templates/evidence.md",
+      "workflow/gate.py",
+      "workflow/record_plan.py",
+      "workflow/research/README.md",
+      "workflow/research/cache.py",
+      "workflow/tasks.json",
+      "workflow/archived-tasks.json",
+      "docs/agent-tasks/BT-003.md",
+      "docs/agent-tasks/BT-004.md",
+      "docs/agent-tasks/BT-007.md",
+      "docs/agent-tasks/BT-008.md",
+      "docs/agent-tasks/BT-009.md",
+      "docs/agent-tasks/BT-011.md",
+      "docs/agent-tasks/BT-013.md",
+      "docs/agent-tasks/BT-016.md",
+      "docs/agent-tasks/BT-017.md",
+      "docs/agent-tasks/BT-018.md",
+      "docs/coding-standards.md",
+      "docs/agent-tasks/README.md"
+    ],
+    "reportedVerification": "67 workflow tests passed, compilation/JSON/TOML/queue checks passed. Independent Tester verification follows.",
+    "recoverySnapshot": "/tmp/bt021-reviewer-recovery-20261001T191822Z/manifest.json",
+    "migrationRecovery": {
+      "sourceValidation": "Pending source and successor states, BT-003 blocked, BT-006 claimed, and BT-014 prerequisites checked before migration.",
+      "method": "Two sequential one-off Python migrations with immediate pre-change bytes held in memory, adjacent staged replacements and restore-on-replacement-failure.",
+      "durableOriginalSnapshot": null,
+      "limitation": "No durable original migration backup/manifest; reported /tmp snapshot covers latest two reviewer corrections only."
+    }
+  },
+  "featureReview": {
+    "reviewer": "Chandrasekhar",
+    "decision": "approved",
+    "findings": [
+      {
+        "key": "bt021-cache-source-format",
+        "severity": "high",
+        "status": "resolved",
+        "owner": "builder",
+        "classification": "implementation",
+        "description": "Accept valid unindented URL source lists and document actual cache template; provisional source review before Builder handoff.",
+        "resolution": "Builder accepts unindented source URL entries and added matching README template. Independent verification follows."
+      }
+    ],
+    "scope": "BT-021-AC-01..07 and BT-021-DEL-01..03; no blocking findings remain; gates/active states and transferred obligations preserved.",
+    "knownLimits": "Original migration rollback relies on Builder-reported in-memory backups; original commands/snapshots not retained or independently fault-injected. Reviewer confirms this does not violate AC-07."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "taskId": "BT-NNN",
+  "kind": "behavior",
+  "workflow": {
+    "phase": "pending",
+    "correctionCycles": 0,
+    "maxCorrectionCycles": 2,
+    "activeFailure": null,
+    "blockedReason": "",
+    "failureHistory": {},
+    "phaseTimings": []
+  },
+  "planner": {
+    "owner": "",
+    "planPath": "",
+    "risk": "low",
+    "operations": [],
+    "ownedFiles": [],
+    "rollback": "",
+    "acceptanceIds": [],
+    "approvedSpecs": []
+  },
+  "securityPreflight": {
+    "reviewer": "",
+    "decision": "pending",
+    "scope": "",
+    "findings": []
+  },
+  "destructiveApproval": {
+    "action": "",
+    "approvalReference": "",
+    "recoverySnapshot": ""
+  },
+  "tester": {
+    "owner": "",
+    "red": {
+      "command": "",
+      "observedFailure": "",
+      "acceptanceIds": []
+    },
+    "verification": [],
+    "status": "pending"
+  },
+  "builder": {
+    "owner": "",
+    "status": "pending",
+    "changedFiles": []
+  },
+  "featureReview": {
+    "reviewer": "",
+    "decision": "pending",
+    "findings": []
+  }
+}

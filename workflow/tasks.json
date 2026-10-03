@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "tasks": [
+    {
+      "id": "BT-001",
+      "title": "Approve product foundation",
+      "packet": "docs/agent-tasks/BT-001.md",
+      "dependsOn": [],
+      "state": "done"
+    },
+    {
+      "id": "BT-002",
+      "title": "Approve architecture and data decisions",
+      "packet": "docs/agent-tasks/BT-002.md",
+      "dependsOn": [
+        "BT-001"
+      ],
+      "state": "done"
+    },
+    {
+      "id": "BT-003",
+      "title": "Prove Android overlay and charts, then approve overlay specification",
+      "packet": "docs/agent-tasks/BT-003.md",
+      "dependsOn": [
+        "BT-002"
+      ],
+      "state": "blocked"
+    },
+    {
+      "id": "BT-004",
+      "title": "Approve expense and category specifications",
+      "packet": "docs/agent-tasks/BT-004.md",
+      "dependsOn": [
+        "BT-002"
+      ],
+      "state": "done"
+    },
+    {
+      "id": "BT-005",
+      "title": "Initialize native Android foundation",
+      "packet": "docs/agent-tasks/BT-005.md",
+      "dependsOn": [
+        "BT-002"
+      ],
+      "state": "done"
+    },
+    {
+      "id": "BT-019",
+      "title": "Make agent handoffs finite and enforce workflow phases",
+      "packet": "docs/agent-tasks/BT-019.md",
+      "dependsOn": [
+        "BT-005"
+      ],
+      "state": "done"
+    },
+    {
+      "id": "BT-020",
+      "title": "Measure workflow gate and phase duration",
+      "packet": "docs/agent-tasks/BT-020.md",
+      "dependsOn": [
+        "BT-019"
+      ],
+      "state": "done"
+    },
+    {
+      "id": "BT-021",
+      "title": "Tier planning and reduce repeated context loading",
+      "packet": "docs/agent-tasks/BT-021.md",
+      "dependsOn": [
+        "BT-020"
+      ],
+      "state": "done"
+    },
+    {
+      "id": "BT-006",
+      "title": "Implement money and time primitives",
+      "packet": "docs/agent-tasks/BT-006.md",
+      "dependsOn": [
+        "BT-005"
+      ],
+      "state": "done"
+    },
+    {
+      "id": "BT-007",
+      "title": "Deliver expense domain and Room persistence",
+      "packet": "docs/agent-tasks/BT-007.md",
+      "dependsOn": [
+        "BT-004",
+        "BT-006"
+      ],
+      "state": "done"
+    },
+    {
+      "id": "BT-009",
+      "title": "Deliver expense entry and management",
+      "packet": "docs/agent-tasks/BT-009.md",
+      "dependsOn": [
+        "BT-007"
+      ],
+      "state": "red"
+    },
+    {
+      "id": "BT-010",
+      "title": "Approve dashboard and history specifications",
+      "packet": "docs/agent-tasks/BT-010.md",
+      "dependsOn": [
+        "BT-006"
+      ],
+      "state": "pending"
+    },
+    {
+      "id": "BT-011",
+      "title": "Deliver dashboard, history, analytics and insights",
+      "packet": "docs/agent-tasks/BT-011.md",
+      "dependsOn": [
+        "BT-003",
+        "BT-009",
+        "BT-010",
+        "BT-012"
+      ],
+      "state": "pending"
+    },
+    {
+      "id": "BT-012",
+      "title": "Approve analytics specification",
+      "packet": "docs/agent-tasks/BT-012.md",
+      "dependsOn": [
+        "BT-010"
+      ],
+      "state": "pending"
+    },
+    {
+      "id": "BT-014",
+      "title": "Deliver Android floating shortcut",
+      "packet": "docs/agent-tasks/BT-014.md",
+      "dependsOn": [
+        "BT-003",
+        "BT-004",
+        "BT-009"
+      ],
+      "state": "pending"
+    },
+    {
+      "id": "BT-015",
+      "title": "Approve backup and accessibility specifications",
+      "packet": "docs/agent-tasks/BT-015.md",
+      "dependsOn": [
+        "BT-005"
+      ],
+      "state": "pending"
+    },
+    {
+      "id": "BT-016",
+      "title": "Deliver backup and restore",
+      "packet": "docs/agent-tasks/BT-016.md",
+      "dependsOn": [
+        "BT-007",
+        "BT-015"
+      ],
+      "state": "pending"
+    },
+    {
+      "id": "BT-017",
+      "title": "Verify release quality and future sync readiness",
+      "packet": "docs/agent-tasks/BT-017.md",
+      "dependsOn": [
+        "BT-011",
+        "BT-014",
+        "BT-016"
+      ],
+      "state": "pending"
+    }
+  ]
+}

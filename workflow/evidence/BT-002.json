@@ -1,0 +1,61 @@
+{
+  "taskId": "BT-002",
+  "kind": "documentation",
+  "planner": {
+    "owner": "bt002_planner_sol",
+    "planPath": "workflow/evidence/BT-002-plan.md",
+    "risk": "low",
+    "operations": ["Validate and update ADR-001 through ADR-005 without deciding open product choices or claiming unproven device behavior.", "Configure project Planner and Builder model assignments and persist Planner research context as directly requested by the user."],
+    "ownedFiles": ["docs/adr/ADR-001-application-architecture.md", "docs/adr/ADR-002-local-database.md", "docs/adr/ADR-003-money-and-time.md", "docs/adr/ADR-004-android-floating-shortcut.md", "docs/adr/ADR-005-future-sync-boundary.md", "docs/decisions.md", ".codex/agents/planner.toml", ".codex/agents/builder.toml", "AGENTS.md", "workflow/README.md", "workflow/agent-prompt.md", "workflow/evidence/BT-002.md", "workflow/evidence/BT-002.json", "workflow/evidence/BT-002-plan.md"],
+    "rollback": "Review the focused documentation/config diff. Restore only BT-002-owned ADR/decision/config/instruction edits from preserved baseline copies or the recorded prior contents; no app or user data is touched.",
+    "acceptanceIds": [],
+    "approvedSpecs": []
+  },
+  "securityPreflight": {
+    "reviewer": "",
+    "decision": "pending",
+    "scope": "",
+    "findings": []
+  },
+  "destructiveApproval": {
+    "action": "",
+    "approvalReference": "",
+    "recoverySnapshot": ""
+  },
+  "tester": {
+    "owner": "bt002_tester",
+    "red": {
+      "command": "",
+      "observedFailure": "",
+      "acceptanceIds": []
+    },
+    "verification": [
+      {
+        "command": "rg -n 'Status|Room|minor units|UTC|overlay' docs/adr",
+        "result": "passed",
+        "notes": "Exact packet command exited 0. Tester manually verified scoped ADR approvals, D-02 and BT-003/D-01/D-06 blockers, preserved D-01 through D-07, and BT-005 dependency pinning."
+      },
+      {
+        "command": "python3 -c 'import pathlib,tomllib; p=pathlib.Path(\".codex/agents/planner.toml\"); b=pathlib.Path(\".codex/agents/builder.toml\"); a=tomllib.loads(p.read_text()); c=tomllib.loads(b.read_text()); assert a[\"model\"] == \"gpt-6-sol\"; assert c[\"model\"] == \"gpt-6-luna\"; assert \"BT-NNN-plan.md\" in a[\"developer_instructions\"]; assert \"TASK-ID-plan.md\" in c[\"developer_instructions\"]; print(\"Planner/Builder model and persisted-plan settings: PASS\")'",
+        "result": "passed",
+        "notes": "TOML parsed; model assignments and persistent-plan instructions match the user request."
+      },
+      {
+        "command": "Manual review of ADR-001 through ADR-005, decision log, saved Planner plan, and project agent workflow",
+        "result": "passed",
+        "notes": "Tester confirmed dependency/version selection is deferred to BT-005 and the persisted GPT-6-Sol plan includes source links and research date."
+      }
+    ],
+    "status": "passed"
+  },
+  "builder": {
+    "owner": "",
+    "status": "pending",
+    "changedFiles": []
+  },
+  "featureReview": {
+    "reviewer": "bt002_reviewer",
+    "decision": "approved",
+    "findings": []
+  }
+}
