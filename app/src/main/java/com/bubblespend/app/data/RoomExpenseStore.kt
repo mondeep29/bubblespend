@@ -120,6 +120,9 @@ class RoomExpenseStore private constructor(
 
     override suspend fun getExpense(id: UUID): Expense? = database.expenses().get(id.toString())?.toModel()
 
+    override fun observeAllActiveExpenses(): Flow<List<Expense>> =
+        database.expenses().observeAllActive().map { rows -> rows.map(ExpenseEntity::toModel) }
+
     override fun observeExpenses(
         startInclusive: Instant,
         endExclusive: Instant,

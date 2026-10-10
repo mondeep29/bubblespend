@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-10",
+  "device": {
+    "model": "Pixel 7",
+    "codename": "panther",
+    "android": 17,
+    "api": 37,
+    "physical": true
+  },
+  "sourceRevision": "07eedbfe6ee0a665d36e0198ca59d23221bd61e0",
+  "workingTree": "modified; source file hashes identify the verified implementation",
+  "variant": "debug",
+  "apk": {
+    "path": "app/build/outputs/apk/debug/app-debug.apk",
+    "sha256": "80c183a3b1e86ab6e61d517e5a1ea8305859997072eb9c6d82338889cfadfdea",
+    "installResult": "Installed successfully by connectedDebugAndroidTest on the physical Pixel 7"
+  },
+  "staticChecks": {
+    "spotlessCheck": "passed",
+    "lint": "passed"
+  },
+  "normal": {
+    "tests": 44,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "display": {
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "local": {
+    "core/application/build/test-results/test": {
+      "tests": 28,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core/domain/build/test-results/test": {
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app/build/test-results/testDebugUnitTest": {
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "displaySettings": {
+    "font_scale": 2,
+    "font_weight_adjustment": 300,
+    "high_text_contrast_enabled": 1,
+    "animator_duration_scale": 0,
+    "transition_animation_scale": 0,
+    "window_animation_scale": 0,
+    "originalSettingsRestored": true,
+    "restorationCorrection": {
+      "date": "2026-10-10",
+      "reason": "Deleting the originally absent weight preference did not reset Android active font configuration.",
+      "fontScale": 1,
+      "fontWeightAdjustment": 0,
+      "activeConfigurationVerified": true
+    }
+  },
+  "screenshots": {
+    "docs/proofs/setup-settings/images/setup-large.png": "b00381c46096e3e873355c8f5c425084849fa9b7ba2cfcad97747cd7232145d0",
+    "docs/proofs/setup-settings/images/setup-validation-large.png": "75b12324f8a99e52bd4b1bc7845e417d83c34bf20f0b4992085334d4a6e7286e",
+    "docs/proofs/setup-settings/images/setup-retry-large.png": "62f02330b0d08021340f2576fa1ca3971456cda67fc1b637c9639aab2d37446e",
+    "docs/proofs/setup-settings/images/settings-large.png": "5d6cb1ae83625f80fd7baa08f6c7a803df294a670a10e68d2b1a0f2c6310f904"
+  },
+  "sourceFiles": {
+    "app/build.gradle.kts": "8987327f6df5065cbd3f5f2387e0697530f91318f7eaaa982374ad69bdea4ab0",
+    "app/src/main/AndroidManifest.xml": "b9e76be57acfb38ac070f79d64282df37e707d3a4066ebff3f9e3e3eb5bd33dd",
+    "app/src/main/java/com/bubblespend/app/MainActivity.kt": "782eec379621b6daeeb31dc053cfcf7cedb996e3165dcb89fd365c29a2709010",
+    "app/src/main/java/com/bubblespend/app/data/ExpenseDatabase.kt": "b6fb4b6f9f4c5c30e3dadb63fd7a5776ce000126b848fef7385fdf7b74f46f92",
+    "app/src/main/java/com/bubblespend/app/data/PreferenceCurrencyRepository.kt": "bc6cff97d57ae775a3b86171043f4eaa1adf7c0c2b6c777b4825e60948841bbb",
+    "app/src/main/java/com/bubblespend/app/data/RoomExpenseStore.kt": "73b56b39757bf7b6de98743b48035eda7ffc52e5d65dbb0b3fcbea667d60270c",
+    "app/src/main/java/com/bubblespend/app/ui/BubbleSpendApp.kt": "cd039934db92a3bb187837cd7d27763620c49ba66076ff29af0d9a4970d71443",
+    "app/src/main/java/com/bubblespend/app/ui/ExpenseAppViewModel.kt": "a4784b0fc61d41d9441dda3a101955d0fd388d3bbad1bf3c1b4f53a78fdc9dd6",
+    "app/src/main/java/com/bubblespend/app/ui/theme/BubbleSpendTheme.kt": "7785e267739d0440d912fa81f28caa871f9ea756d4947129ad4425bbbdb5c3fe",
+    "app/src/main/res/values/strings.xml": "c2fc5e6b791e943cc8ce29fbf556ceb8c755694155388547a17bd723a3ccf26c",
+    "app/src/main/res/values/styles.xml": "60cb072071d3c64e8440c998349de62f5afe248b0f799449dea267f335e67c5b",
+    "build.gradle.kts": "9ca021a9cb6a8565cf7db2b35db8ee2dcc9e561c787f226d5917e4f284bda9cb",
+    "core/application/build.gradle.kts": "aced602c1901aa2c27f564dece83b3fe223c40cf2a512805f10b973340c9a1a4",
+    "core/application/src/main/kotlin/com/bubblespend/core/application/ExpenseEntryController.kt": "561f1e6ef9ae5de3d2996ebcd3ca165909b6bcc878ca76fcecdb338f0e4a3ae1",
+    "core/application/src/main/kotlin/com/bubblespend/core/application/ExpenseModels.kt": "1f9f36c892136c659b9a3dfc011c6490820d73e6e57d9006397b7e2facc3a1e8",
+    "core/application/src/main/kotlin/com/bubblespend/core/application/InMemoryExpenseStore.kt": "91a4233ed29a0566e51bd08381fac96433fd4829399ac2a83ea3d8028a3e5cd8",
+    "core/application/src/main/kotlin/com/bubblespend/core/application/InMemorySetupSettingsRepository.kt": "ac4864f9b099f9f7f1572fb62a059cfc7fbbfa0a313a1fbf07524d64cbf3a56c",
+    "core/application/src/main/kotlin/com/bubblespend/core/application/SetupSettings.kt": "5b2d0efe9b76c52d9b823214ce5f7b6edcd4e74a303f10d42fea252aa578b284",
+    "core/domain/build.gradle.kts": "1fd8ee5beb6d8b0c4a552de5acc5824e703d80a2ca7baa24e6a99a1fda67d839",
+    "core/domain/src/main/kotlin/com/bubblespend/core/domain/CalendarPeriods.kt": "b7b36332f79dbcc7a3ad10ea069f17bacf97d7d38385e3b17a2f306619cef82a",
+    "core/domain/src/main/kotlin/com/bubblespend/core/domain/LocalizedMoneyParser.kt": "d1d36b25ef9a512c5c8bc19e1c65648841febd5a18f4f79f49f4e24e0bd350fa",
+    "core/domain/src/main/kotlin/com/bubblespend/core/domain/Money.kt": "27cad9ff8f18076aa795cd092086cfc3f0d17ca5d833f1c5d9f8f758270419d4",
+    "core/domain/src/main/kotlin/com/bubblespend/core/domain/UuidGenerator.kt": "faf930ff6b8bb1dfd4efc925657b5529aa0ce851fde75ef2d67fe5379850b60f",
+    "docs/specs/SPEC-009-onboarding-settings.md": "af388051628e87eba1ab2421ef4ff622fcd00ba1edc10102c4d5c11de0d7d0e2",
+    "gradle.properties": "404e5f67cac42557b5ce59804c1313e75cf93833adafa5f25c0c51fa73e2704a",
+    "gradle/libs.versions.toml": "c4251dbaae5dffe0ab2ebf3a81ef17467f3fd2710486a56204ffc1e92f9327fd",
+    "settings.gradle.kts": "894c4fce3cd46f9f5e6cecb2369cc07c600455899243ab0c3febcb3bbb63eef6"
+  }
+}

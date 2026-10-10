@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.bubblespend.app.setup.SetupSettingsJourneyTest" tests="9" failures="0" errors="0" skipped="0" time="22.687" timestamp="2026-10-09T19:44:12" hostname="localhost">
+  <properties>
+    <property name="device" value="Pixel 7 - 17" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="settingsFailureRetainsAttemptedDayAndPreviousEffectiveDayUntilRetry" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.32" />
+  <testcase name="readFailureAllowsBrowsingAndDraftingButBlocksSaveUntilRetry" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.389" />
+  <testcase name="invalidCurrencyKeepsInputWithoutConfirmingAndCanBeCorrected" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.06" />
+  <testcase name="completionFailureKeepsChoicesAndRetryCompletes" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="0.724" />
+  <testcase name="localeWithoutCurrencyRequiresExplicitChoice" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="0.573" />
+  <testcase name="freshInstallSuggestionsBrowseDraftAndExplicitCompletion" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.632" />
+  <testcase name="largeTextKeepsSetupValidationRecoveryAndSettingsControlsReachable" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="2.801" />
+  <testcase name="unfinishedChoicesResumeInANewViewModelAndLocaleCannotReplaceConfirmedCurrency" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.113" />
+  <testcase name="failedDraftWriteKeepsEnteredChoiceForRetryAndReopen" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="0.675" />
+</testsuite>

@@ -31,6 +31,9 @@ sealed interface StoreResult<out T> {
 }
 
 interface ExpenseRepository {
+    fun observeAllActiveExpenses(): Flow<List<Expense>> =
+        observeExpenses(java.time.Instant.parse("0001-01-01T00:00:00Z"), java.time.Instant.parse("9999-12-31T23:59:59Z"))
+
     suspend fun createExpense(
         expense: NewExpense,
         token: UUID,
@@ -217,6 +220,11 @@ class InMemoryExpenseStore(
         }
 
     override suspend fun getExpense(id: UUID): Expense? = synchronized(lock) { expenses[id] }
+
+    override fun observeAllActiveExpenses(): Flow<List<Expense>> =
+        expenseState.asStateFlow().map { records ->
+            records.filter { it.deletedAt == null }.sortedByDescending { it.occurredAt }
+        }
 
     suspend fun activeExpenses(
         startInclusive: java.time.Instant,

@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
 
     private fun beginEnable() {
         if (Settings.canDrawOverlays(this)) {
-            startOverlay()
+            if (OverlayService.setEnabled(this, true)) startOverlay()
         } else {
             returningFromPermission = true
             Log.i(LOG_TAG, "overlay permission explanation shown")
@@ -66,8 +66,10 @@ class MainActivity : ComponentActivity() {
 
     private fun refreshOverlayState() {
         returningFromPermission = false
-        if (Settings.canDrawOverlays(this)) startOverlay()
-        else {
+        if (Settings.canDrawOverlays(this)) {
+            if (OverlayService.setEnabled(this, true)) startOverlay()
+        } else {
+            OverlayService.setEnabled(this, false)
             stopService(Intent(this, OverlayService::class.java))
             Log.i(LOG_TAG, "overlay permission not granted")
         }
@@ -79,6 +81,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun disableOverlay() {
+        OverlayService.setEnabled(this, false)
         stopService(Intent(this, OverlayService::class.java))
         Log.i(LOG_TAG, "overlay disabled")
     }

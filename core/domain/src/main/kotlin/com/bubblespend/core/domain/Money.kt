@@ -14,9 +14,11 @@ class CurrencyCode private constructor(
     override fun toString(): String = value
 
     companion object {
+        private val supportedCurrencies = Currency.getAvailableCurrencies().associateBy { it.currencyCode }
+
         fun of(value: String): CurrencyCode {
             require(value == value.uppercase() && value.length == 3) { "Invalid currency code" }
-            val currency = Currency.getInstance(value)
+            val currency = supportedCurrencies[value] ?: throw IllegalArgumentException("Unsupported currency code")
             require(currency.currencyCode == value) { "Unsupported currency code" }
             return CurrencyCode(value, currency.defaultFractionDigits)
         }

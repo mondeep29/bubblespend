@@ -1,6 +1,0 @@
-# Project-scoped Codex agent settings. Start Codex from this directory after
-# trusting the project so the agent files and execution rules are discovered.
-[agents]
-enabled = true
-max_concurrent_threads_per_session = 3
-

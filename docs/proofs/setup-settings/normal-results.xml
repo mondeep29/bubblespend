@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.bubblespend.app.HomeStartupTest" tests="44" failures="0" errors="0" skipped="0" time="61.286" timestamp="2026-10-09T19:40:10" hostname="localhost">
+  <properties>
+    <property name="device" value="Pixel 7 - 17" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="appLaunch_opensHomeRoute_withAccessibleHeading" classname="com.bubblespend.app.HomeStartupTest" time="1.452" />
+  <testcase name="homeSurface_usesConfiguredLightThemeBackground" classname="com.bubblespend.app.HomeStartupTest" time="1.159" />
+  <testcase name="duplicateOpensEditableCopyAndKeepsOriginalExpense" classname="com.bubblespend.app.expenses.ExpenseManagementJourneyTest" time="3.354" />
+  <testcase name="entryOffersLabeledFieldsAndKeepsAnUnsavedDraftUntilDiscardIsConfirmed" classname="com.bubblespend.app.expenses.ExpenseManagementJourneyTest" time="2.035" />
+  <testcase name="undoDuringVisibleSnackbarRestoresExpenseAcrossActivityRestart" classname="com.bubblespend.app.expenses.ExpenseManagementJourneyTest" time="2.317" />
+  <testcase name="paymentManagementExposesCreateAndDefaultActions" classname="com.bubblespend.app.expenses.ExpenseManagementJourneyTest" time="1.058" />
+  <testcase name="deleteOffersOneVisibleUndoAndActivityInterruptionEndsThatAction" classname="com.bubblespend.app.expenses.ExpenseManagementJourneyTest" time="2.155" />
+  <testcase name="savedExpenseSurvivesActivityRestartAndEditUpdatesVisibleFields" classname="com.bubblespend.app.expenses.ExpenseManagementJourneyTest" time="3.241" />
+  <testcase name="categoryManagementExposesCreateRenameAndArchiveActions" classname="com.bubblespend.app.expenses.ExpenseManagementJourneyTest" time="1.387" />
+  <testcase name="invalidEntryKeepsFieldsAndShowsAnAccessibleError" classname="com.bubblespend.app.expenses.ExpenseManagementJourneyTest" time="1.492" />
+  <testcase name="renamedThenArchivedCategoryKeepsHistoricalExpenseLabelReadable" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.804" />
+  <testcase name="archivedDraftCategoryRequiresFreshSelectionBeforeSaving" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.229" />
+  <testcase name="committedDeleteWithLostResponseResolvesTombstoneBeforeReportingOutcome" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.932" />
+  <testcase name="failedCategoryRenameKeepsDraftAndHistoricalLabel" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.418" />
+  <testcase name="invalidCategoryNameKeepsDraftAndAnnouncesFieldError" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.317" />
+  <testcase name="staleExpenseEditPreservesDraftWithoutOverwritingNewerRecord" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="2.443" />
+  <testcase name="failedDeleteDoesNotAnnounceSuccessAndOffersRetry" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.905" />
+  <testcase name="staleCategoryRenameKeepsEditableDraftAndDoesNotOverwriteStoredName" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.342" />
+  <testcase name="malformedOccurredTimeKeepsTextShowsFieldErrorAndCannotSave" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="2.257" />
+  <testcase name="committedCreateWithLostResponseRetryPreservesOneLogicalExpense" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.881" />
+  <testcase name="noActiveCategoriesOffersCreatePathAndCannotSaveExpense" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.085" />
+  <testcase name="failedSaveKeepsEnteredValuesAndRetryPersistsOnlyOneExpense" classname="com.bubblespend.app.expenses.ExpenseRecoveryTest" time="1.901" />
+  <testcase name="customCategoryAndPaymentIdentitySurviveRenameReopenAndStaleFailure" classname="com.bubblespend.app.expenses.RoomExpenseRepositoryContractTest" time="0.288" />
+  <testcase name="failedDefaultSwitchLeavesExistingDefaultUnchanged" classname="com.bubblespend.app.expenses.RoomExpenseRepositoryContractTest" time="0.084" />
+  <testcase name="sharedMutationTokenRetryAndMisuseContractRunsAgainstFakeAndRoom" classname="com.bubblespend.app.expenses.RoomExpenseRepositoryContractTest" time="0.161" />
+  <testcase name="sharedExpenseContractRunsAgainstFakeAndRoom" classname="com.bubblespend.app.expenses.RoomExpenseRepositoryContractTest" time="0.134" />
+  <testcase name="freshSchemaAndReopenPreserveExpenseTombstoneAndReceipt" classname="com.bubblespend.app.expenses.RoomExpenseRepositoryContractTest" time="0.001" />
+  <testcase name="sharedCategoryAndPaymentContractRunsAgainstFakeAndRoom" classname="com.bubblespend.app.expenses.RoomExpenseRepositoryContractTest" time="0.215" />
+  <testcase name="corruptDisposableDatabaseReturnsFailureWithoutDeletingBytes" classname="com.bubblespend.app.expenses.RoomExpenseRepositoryContractTest" time="0.001" />
+  <testcase name="seedRepeatsAfterReopenWithoutRestoringRenamedOrArchivedRecords" classname="com.bubblespend.app.expenses.RoomExpenseRepositoryContractTest" time="0.174" />
+  <testcase name="firstLaunchUnfinishedSetupReopenCompletionExpenseAndSettingsSurviveStorageReopen" classname="com.bubblespend.app.setup.SetupPersistentJourneyTest" time="2.709" />
+  <testcase name="settingsFailureRetainsAttemptedDayAndPreviousEffectiveDayUntilRetry" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.502" />
+  <testcase name="readFailureAllowsBrowsingAndDraftingButBlocksSaveUntilRetry" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.565" />
+  <testcase name="invalidCurrencyKeepsInputWithoutConfirmingAndCanBeCorrected" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.588" />
+  <testcase name="completionFailureKeepsChoicesAndRetryCompletes" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.25" />
+  <testcase name="localeWithoutCurrencyRequiresExplicitChoice" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.092" />
+  <testcase name="freshInstallSuggestionsBrowseDraftAndExplicitCompletion" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.817" />
+  <testcase name="largeTextKeepsSetupValidationRecoveryAndSettingsControlsReachable" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="3.145" />
+  <testcase name="unfinishedChoicesResumeInANewViewModelAndLocaleCannotReplaceConfirmedCurrency" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.666" />
+  <testcase name="failedDraftWriteKeepsEnteredChoiceForRetryAndReopen" classname="com.bubblespend.app.setup.SetupSettingsJourneyTest" time="1.258" />
+  <testcase name="failedWritesKeepConfirmationAbsentAndPreviousWeekEffectiveUntilRetry" classname="com.bubblespend.app.setup.SetupSettingsStorageTest" time="0.159" />
+  <testcase name="draftAndCompletedSettingsSurviveStoreCloseAndReopen" classname="com.bubblespend.app.setup.SetupSettingsStorageTest" time="0.083" />
+  <testcase name="lostCompletionResponseReconcilesAtomicallyAndRetryCannotResetLaterWeek" classname="com.bubblespend.app.setup.SetupSettingsStorageTest" time="0.056" />
+  <testcase name="legacyCurrencyIsPreservedAndAllWeekdaysSurviveReopenAndDriveQueries" classname="com.bubblespend.app.setup.SetupSettingsStorageTest" time="0.443" />
+</testsuite>

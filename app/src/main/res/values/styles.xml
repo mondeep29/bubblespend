@@ -1,3 +1,7 @@
 <resources>
-    <style name="Theme.BubbleSpend" parent="android:style/Theme.Material.Light.NoActionBar" />
+    <style name="Theme.BubbleSpend" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#FFFBFE</item>
+        <item name="android:navigationBarColor">#111629</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 </resources>

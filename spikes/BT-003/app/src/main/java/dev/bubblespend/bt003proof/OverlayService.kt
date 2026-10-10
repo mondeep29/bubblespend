@@ -7,7 +7,9 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.res.Configuration
 import android.graphics.PixelFormat
+import android.os.Build
 import android.os.IBinder
+import android.app.KeyguardManager
 import android.provider.Settings
 import android.util.Log
 import android.view.Gravity
@@ -29,8 +31,11 @@ class OverlayService : Service() {
     private val screenReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             when (intent.action) {
-                Intent.ACTION_SCREEN_OFF -> removeOverlay("screen off")
-                Intent.ACTION_USER_PRESENT -> if (Settings.canDrawOverlays(this@OverlayService)) showCollapsed()
+                Intent.ACTION_SCREEN_OFF -> {
+                    if (isEnabled(this@OverlayService) && Settings.canDrawOverlays(this@OverlayService)) showNeutral()
+                    else removeOverlay("screen off")
+                }
+                Intent.ACTION_USER_PRESENT -> if (isEnabled(this@OverlayService) && Settings.canDrawOverlays(this@OverlayService)) showCollapsed()
             }
         }
     }
@@ -38,19 +43,26 @@ class OverlayService : Service() {
     override fun onCreate() {
         super.onCreate()
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
-        registerReceiver(screenReceiver, IntentFilter().apply {
+        val screenFilter = IntentFilter().apply {
             addAction(Intent.ACTION_SCREEN_OFF)
             addAction(Intent.ACTION_USER_PRESENT)
-        })
+        }
+        if (Build.VERSION.SDK_INT >= 33) registerReceiver(screenReceiver, screenFilter, RECEIVER_NOT_EXPORTED)
+        else @Suppress("DEPRECATION") registerReceiver(screenReceiver, screenFilter)
         Log.i(OVERLAY_LOG, "service created")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (intent?.action == ACTION_SHOW && Settings.canDrawOverlays(this)) showCollapsed()
+        if (intent?.action == ACTION_SHOW && isEnabled(this) && Settings.canDrawOverlays(this)) showCollapsed()
+        else stopSelf(startId)
         return START_NOT_STICKY
     }
 
     private fun showCollapsed() {
+        if ((getSystemService(KEYGUARD_SERVICE) as KeyguardManager).isKeyguardLocked) {
+            showNeutral()
+            return
+        }
         removeOverlay("replace")
         expanded = false
         val pill = TextView(this).apply {
@@ -72,7 +84,28 @@ class OverlayService : Service() {
         Log.i(OVERLAY_LOG, "overlay collapsed")
     }
 
+    private fun showNeutral() {
+        removeOverlay("replace")
+        expanded = false
+        val neutralButton = TextView(this).apply {
+            text = "BubbleSpend"
+            textSize = 16f
+            setTextColor(0xFFFFFFFF.toInt())
+            setPadding(28, 18, 28, 18)
+            setBackgroundColor(0xFF386A20.toInt())
+            contentDescription = "BubbleSpend shortcut"
+            setOnClickListener { }
+            setOnLongClickListener { true }
+        }
+        install(neutralButton, 0)
+        Log.i(OVERLAY_LOG, "neutral shortcut shown while locked")
+    }
+
     private fun showExpanded() {
+        if ((getSystemService(KEYGUARD_SERVICE) as KeyguardManager).isKeyguardLocked) {
+            showNeutral()
+            return
+        }
         expanded = true
         val panel = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -215,7 +248,10 @@ class OverlayService : Service() {
     companion object {
         const val ACTION_SHOW = "dev.bubblespend.bt003proof.SHOW"
         private const val PREFS = "bt003_synthetic_proof"
+        private const val KEY_ENABLED = "shortcut_enabled"
         private const val KEY_SAVED = "save_count"
+        fun isEnabled(context: Context): Boolean = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getBoolean(KEY_ENABLED, false)
+        fun setEnabled(context: Context, enabled: Boolean): Boolean = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putBoolean(KEY_ENABLED, enabled).commit()
         fun savedCount(context: Context): Int = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getInt(KEY_SAVED, 0)
 
         @Synchronized

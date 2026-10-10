@@ -71,11 +71,23 @@ No remote events. Local UI state may represent loading, success, and failure wit
 
 ## Test mapping
 
-BT-007 creates failing domain and Room contract tests before implementation. BT-009 creates failing management UI tests before implementation.
+Category/payment-management acceptance tests:
 
-BT-007's first red tests are in `core/application/src/test/kotlin/com/bubblespend/core/application/CategoryPaymentRepositoryContractTest.kt` and `core/application/src/test/kotlin/com/bubblespend/core/application/CategoryPaymentValidationTest.kt`. Room contract tests are in `app/src/androidTest/java/com/bubblespend/app/expenses/RoomExpenseRepositoryContractTest.kt`; BT-009's `CategoryPaymentAccessibilityTest` and `ExpenseSelectionTest` are planned in matching UI test files. The methods below name actual BT-007 tests where present and planned later UI tests otherwise.
+| Criterion | Exact test method |
+| --- | --- |
+| AC-01 | `CategoryPaymentRepositoryContractTest.seedingIsIdempotentAndPreservesUserChanges` and `RoomExpenseRepositoryContractTest.seedRepeatsAfterReopenWithoutRestoringRenamedOrArchivedRecords` cover starter records. |
+| AC-02 | `ExpenseRecoveryTest.invalidCategoryNameKeepsDraftAndAnnouncesFieldError` |
+| AC-03 | `ExpenseRecoveryTest.renamedThenArchivedCategoryKeepsHistoricalExpenseLabelReadable` |
+| AC-04 | `ExpenseManagementJourneyTest.paymentManagementExposesCreateAndDefaultActions`; `CategoryPaymentRepositoryContractTest.defaultChangeAndArchiveAreAtomic` |
+| AC-05 | `ExpenseManagementJourneyTest.categoryManagementExposesCreateRenameAndArchiveActions`; `ExpenseManagementJourneyTest.paymentManagementExposesCreateAndDefaultActions`; `ExpenseRecoveryTest.noActiveCategoriesOffersCreatePathAndCannotSaveExpense` |
+| AC-06 | `ExpenseRecoveryTest.archivedDraftCategoryRequiresFreshSelectionBeforeSaving` |
+| AC-07 | `ExpenseRecoveryTest.failedCategoryRenameKeepsDraftAndHistoricalLabel`; `ExpenseRecoveryTest.staleCategoryRenameKeepsEditableDraftAndDoesNotOverwriteStoredName` |
+| AC-08 | `ExpenseRecoveryTest.renamedThenArchivedCategoryKeepsHistoricalExpenseLabelReadable`; `RoomExpenseRepositoryContractTest.customCategoryAndPaymentIdentitySurviveRenameReopenAndStaleFailure` |
+| AC-09 | `ExpenseRecoveryTest.renamedThenArchivedCategoryKeepsHistoricalExpenseLabelReadable`; `CategoryPaymentValidationTest.rejectsUnsupportedTokens` |
 
-BT-007's Room red tests are in `app/src/androidTest/java/com/bubblespend/app/expenses/RoomExpenseRepositoryContractTest.kt`: `sharedCategoryAndPaymentContractRunsAgainstFakeAndRoom` covers repository portions of AC-02, AC-03, AC-04, AC-06, and AC-08; `seedRepeatsAfterReopenWithoutRestoringRenamedOrArchivedRecords` covers AC-01; `failedDefaultSwitchLeavesExistingDefaultUnchanged` covers conflict/rollback portions of AC-04 and AC-07. Device execution follows Room implementation. UI announcements remain planned for BT-009.
+These UI tests exercise the injected app contract and launched activity. Recorded execution results are summarized in [completion status](../project-status.md). Display-setting checks remain part of release verification; screen-reader checks are outside MVP scope under D-08.
+
+Application tests are in `core/application/src/test/kotlin/com/bubblespend/core/application/CategoryPaymentRepositoryContractTest.kt` and `CategoryPaymentValidationTest.kt`. Room tests are in `app/src/androidTest/java/com/bubblespend/app/expenses/RoomExpenseRepositoryContractTest.kt`: `sharedCategoryAndPaymentContractRunsAgainstFakeAndRoom` covers repository portions of AC-02, AC-03, AC-04, AC-06, and AC-08; `seedRepeatsAfterReopenWithoutRestoringRenamedOrArchivedRecords` covers AC-01; `failedDefaultSwitchLeavesExistingDefaultUnchanged` covers conflict/rollback portions of AC-04 and AC-07. The table below retains proposed additional checks; planned method names are not passing results.
 
 | Criterion | Proposed test | Verification command |
 | --- | --- | --- |

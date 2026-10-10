@@ -72,11 +72,28 @@ No remote events. Local UI state may record save outcome without content.
 
 ## Test mapping
 
-BT-007 creates failing domain and repository acceptance tests before implementation; BT-009 creates failing Compose and device journey tests before entry UI work. Proposed test mapping:
+Expense-management acceptance tests:
 
-BT-007's first red tests are in `core/application/src/test/kotlin/com/bubblespend/core/application/ExpenseRepositoryContractTest.kt` and `core/application/src/test/kotlin/com/bubblespend/core/application/ExpenseEntryValidationTest.kt`. Room contract tests are in `app/src/androidTest/java/com/bubblespend/app/expenses/RoomExpenseRepositoryContractTest.kt`; BT-009's `ExpenseEntryScreenTest`, `ExpenseEntryAccessibilityTest`, and `ExpenseDeletionJourneyTest` are planned in matching UI test files. The methods below name actual BT-007 tests where present and planned later UI tests otherwise.
+| Criterion | Exact test method |
+| --- | --- |
+| AC-01 | `ExpenseEntryControllerAcceptanceTest.saveRequiresExplicitCurrencyConfirmationAndParsesExactMinorUnits`; `ExpenseManagementJourneyTest.savedExpenseSurvivesActivityRestartAndEditUpdatesVisibleFields` |
+| AC-02, AC-10 | `ExpenseManagementJourneyTest.invalidEntryKeepsFieldsAndShowsAnAccessibleError`; `ExpenseRecoveryTest.malformedOccurredTimeKeepsTextShowsFieldErrorAndCannotSave` (AC-10 occurred-time entry) |
+| AC-03 | `ExpenseRecoveryTest.archivedDraftCategoryRequiresFreshSelectionBeforeSaving` |
+| AC-04 | `ExpenseEntryControllerAcceptanceTest.rapidRepeatedSubmitPersistsAtMostOnceForTheLogicalSubmission`; `ExpenseEntryControllerAcceptanceTest.storageFailurePreservesDraftAndRetryUsesTheSameSubmissionToken` |
+| AC-05 | `ExpenseManagementJourneyTest.savedExpenseSurvivesActivityRestartAndEditUpdatesVisibleFields` |
+| AC-06 | `ExpenseManagementJourneyTest.duplicateOpensEditableCopyAndKeepsOriginalExpense` |
+| AC-07 | `ExpenseManagementJourneyTest.undoDuringVisibleSnackbarRestoresExpenseAcrossActivityRestart` |
+| AC-08 | `ExpenseEntryControllerAcceptanceTest.storageFailurePreservesDraftAndRetryUsesTheSameSubmissionToken`; `ExpenseRecoveryTest.failedSaveKeepsEnteredValuesAndRetryPersistsOnlyOneExpense` |
+| AC-09 | `ExpenseManagementJourneyTest.entryOffersLabeledFieldsAndKeepsAnUnsavedDraftUntilDiscardIsConfirmed` |
+| AC-11 | `ExpenseRecoveryTest.noActiveCategoriesOffersCreatePathAndCannotSaveExpense` |
+| AC-12 | `ExpenseRecoveryTest.staleExpenseEditPreservesDraftWithoutOverwritingNewerRecord` |
+| AC-13 | `ExpenseManagementJourneyTest.entryOffersLabeledFieldsAndKeepsAnUnsavedDraftUntilDiscardIsConfirmed` |
+| AC-14, AC-15 | `ExpenseManagementJourneyTest.deleteOffersOneVisibleUndoAndActivityInterruptionEndsThatAction` |
+| AC-16 | `ExpenseRecoveryTest.failedDeleteDoesNotAnnounceSuccessAndOffersRetry`; `ExpenseRecoveryTest.committedDeleteWithLostResponseResolvesTombstoneBeforeReportingOutcome` |
 
-BT-007's Room red tests are in `app/src/androidTest/java/com/bubblespend/app/expenses/RoomExpenseRepositoryContractTest.kt`: `sharedExpenseContractRunsAgainstFakeAndRoom` covers the repository portions of AC-01, AC-03, AC-04, AC-05, AC-07, and AC-12; `freshSchemaAndReopenPreserveExpenseTombstoneAndReceipt` covers persistence portions of AC-01, AC-04, AC-15, and AC-16. Device execution follows Room implementation. UI announcement and recovery portions remain planned for BT-009.
+Repository and Room contract tests cover stored IDs, versions, tombstones, exact validation, and durable reopen. An activity recreation assertion does not by itself prove process-death persistence. Recorded execution results are summarized in [completion status](../project-status.md); screen-reader checks are outside MVP scope under D-08.
+
+Application tests are in `core/application/src/test/kotlin/com/bubblespend/core/application/ExpenseRepositoryContractTest.kt` and `ExpenseEntryValidationTest.kt`. Room tests are in `app/src/androidTest/java/com/bubblespend/app/expenses/RoomExpenseRepositoryContractTest.kt`: `sharedExpenseContractRunsAgainstFakeAndRoom` covers repository portions of AC-01, AC-03, AC-04, AC-05, AC-07, and AC-12; `freshSchemaAndReopenPreserveExpenseTombstoneAndReceipt` covers persistence portions of AC-01, AC-04, AC-15, and AC-16. The table below retains proposed additional checks; planned method names are not passing results.
 
 | Criterion | Proposed test | Verification command |
 | --- | --- | --- |

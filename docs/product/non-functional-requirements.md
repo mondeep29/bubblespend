@@ -23,7 +23,7 @@
 
 ## Accessibility and localization
 
-- Aim for WCAG 2.2 AA contrast where relevant; use Android minimum touch targets and logical TalkBack order.
+- Aim for WCAG 2.2 AA contrast where relevant; use Android minimum touch targets and logical touch/keyboard navigation. Screen-reader support is outside MVP scope under D-08.
 - Supply text/list equivalents for every visualization. Bubble size and color cannot be the only information channels.
 - Support large text, bold text, high contrast, reduced motion, and localization-ready strings.
 
@@ -35,6 +35,6 @@
 
 ## Evidence and unresolved targets
 
-- Map each approved acceptance criterion to a named automated test or a reproducible manual/device check. Record command, device/API level where relevant, and result in task evidence.
+- Map each approved acceptance criterion to a named automated test or a reproducible manual/device check. Record command, device/API level where relevant, and result in [completion status](../project-status.md) or the relevant specification/proof.
 - The 50,000-expense responsiveness requirement applies on a representative mid-range device. The task that introduces the benchmark must identify the device and measured query/render operations; do not treat the qualitative phrase “feels immediate” as a numeric latency threshold.
 - Accessibility evidence covers success, empty, validation, and recovery states for each approved critical journey, not only the default screen.

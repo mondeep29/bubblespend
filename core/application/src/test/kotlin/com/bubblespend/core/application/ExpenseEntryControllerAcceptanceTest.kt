@@ -150,7 +150,7 @@ class ExpenseEntryControllerAcceptanceTest {
             records.singleOrNull()?.let { existing -> return StoreResult.Success(existing) }
             val saved =
                 Expense(
-                    id = uuid(100),
+                    id = UUID.fromString("00000000-0000-0000-0000-000000000100"),
                     amount = expense.amount,
                     occurredAt = expense.occurredAt,
                     categoryId = expense.categoryId,

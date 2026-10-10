@@ -100,6 +100,9 @@ data class AppMetadataEntity(
 
 @Dao
 interface ExpenseDao {
+    @Query("SELECT * FROM expenses WHERE deletedAtUtc IS NULL ORDER BY occurredAtUtc DESC, id")
+    fun observeAllActive(): Flow<List<ExpenseEntity>>
+
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(entity: ExpenseEntity)
 

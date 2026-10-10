@@ -9,7 +9,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "dev.bubblespend.bt003proof"
+        applicationId = "dev.bubblespend.bt003proof.revision"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
